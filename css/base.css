@@ -16,6 +16,7 @@ main{
     font-size: large;
     background: darkgrey;
     text-align: center;
+    min-height: 400px;
 }
 footer{
     width: 100%;
@@ -69,6 +70,17 @@ li{
 li:last-child{
     border-bottom: none;
 }
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
 
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
 
