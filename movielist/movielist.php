@@ -32,7 +32,7 @@
 
             echo "<tr>";
             echo "<td>" . $row["movieID"] ."</td>";
-            echo "<td>" . $row["movieTitle"] ."</td>";
+            echo "<td><a href=movieupdate.php?id=" . $row["movieID"] ."> " . $row["movieTitle"] ."</a></td>";
             echo "<td>" . $row["movieRating"] ."<td>";
             echo "</tr>";
 

@@ -33,7 +33,7 @@
         $row = $sql->fetch();
         while($row!=null){
             echo "<tr>";
-            echo "<td>" . $row["customerID"] ."</td>";
+            echo "<td><a href=customerupdate.php?id=" . $row["customerID"] .">" . $row["customerID"] ."</a></td>";
             echo "<td>" . $row["FirstName"] ."</td>";
             echo "<td>" . $row["LastName"] ."</td>";
             echo "<td>" . $row["Address"] ."</td>";
