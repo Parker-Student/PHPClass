@@ -1,4 +1,5 @@
 <?php
+$key = sprintf('%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
 
     if (isset($_POST["firstName"])) {
         if (isset($_POST["lastName"])) {
@@ -11,6 +12,7 @@
             $zip = $_POST["zipCode"];
             $phone = $_POST["phoneNumber"];
             $email = $_POST["email"];
+            $customerPassword = $_POST["txtpassword"];
 
 
 
@@ -18,8 +20,8 @@
             include '../includes/dbcon.php';
             try {
                 $db = new PDO($dsn, $username, $password, $options);
-                $sql = $db->prepare("insert into customerlist(FirstName, LastName, address, city, state, zip, phone, email)
-            VALUE (:FName,:LName,:Address,:City,:State,:Zip,:Phone,:Email)");
+                $sql = $db->prepare("insert into customerlist(FirstName, LastName, address, city, state, zip, phone, email, customerPassword)
+            VALUE (:FName,:LName,:Address,:City,:State,:Zip,:Phone,:Email,:Password)");
                 $sql->bindValue(":FName", $fname);
                 $sql->bindValue(":LName", $lname);
                 $sql->bindValue(":Address", $address);
@@ -28,6 +30,8 @@
                 $sql->bindValue(":Zip", $zip);
                 $sql->bindValue(":Phone", $phone);
                 $sql->bindValue(":Email", $email);
+                $sql->bindValue(":Password",md5($customerPassword.$key));
+
 
 
                 $sql->execute();
@@ -152,6 +156,18 @@
                     </select></td>
             </tr>
         </table>
+        <br>
+<table border="1" width="60%" align="center" required>
+        <tr height="60">
+            <th>Password</th>
+            <td><input name="txtPassword" id="txtPassword" type="password" size="25"> </td>
+        </tr>
+        <tr height="60">
+            <th>Retype Password</th>
+            <td><input name="txtPassword2" id="txtPassword2" type="password" size="25"> </td>
+        </tr>
+
+</table>
  <br>
         <tr>
             <td colspan="1"><input type="submit" value="Create Account"> </td>

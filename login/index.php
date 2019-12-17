@@ -25,7 +25,14 @@ session_start();
                         $_SESSION["Role"] = $row["roleID"];
                         if($row["roleID"] == 1){
                             header("Location:admin.php");
-                        }else{
+
+                        }
+                        elseif($row["roleID"] == 2){
+                            header("Location:operator.php");
+
+                        }
+
+                        else{
                             header("Location:member.php");
                         }
                     }else{

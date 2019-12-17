@@ -42,6 +42,7 @@
             echo "<td>" . $row["Zip"] ."</td>";
             echo "<td>" . $row["Phone"] ."</td>";
             echo "<td>" . $row["Email"] ."</td>";
+            echo "<td>" .$row["customerPassword"]."</td>";
             echo "</tr>";
 
 
