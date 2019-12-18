@@ -63,13 +63,13 @@ if(isset($_POST["submit"])) {
         $errmsg="Member added to database";
     }
 
-}
-?>
+}?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Parker's Homepage</title>
+    <title>Parkers Homepage</title>
     <link rel="stylesheet" type="text/css" href="../css/base.css">
 </head>
 <body>
