@@ -106,9 +106,26 @@ if(isset($_POST["submit"])) {
                 <th>Role</th>
                 <td>
                     <select id="txtRole" name="txtRole">
-                        <option value="1">Admin</option>
-                        <option value="2">Operator</option>
-                        <option value="3">Member</option>
+
+<?php
+include '../includes/dbcon.php';
+    try {
+        $db = new PDO($dsn, $username, $password, $options);
+
+        $sql = $db->prepare("select * from role");
+        $sql->execute();
+        $row = $sql->fetch();
+        while ($row != null) {
+            echo "<option>" . $row["roleValue"] . "</option>";
+            $row = $sql->fetch();
+        }
+}catch
+    (PDOException $e){
+        $error = $e->getMessage();
+        echo "Error: $error";
+    }
+
+            ?>
                     </select>
                 </td>
             </tr>
