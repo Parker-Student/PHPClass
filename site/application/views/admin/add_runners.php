@@ -35,49 +35,58 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <?php
-        $this->load->view('includes/header');
-        $this->load->view('includes/menu');
 
-        ?>
+                <?php
+                $this->load->view('includes/header');
+                $this->load->view('includes/menu');
 
-        </nav>
+                ?>
+
+                </nav>
 
         <div id="page-wrapper">
 
             <div class="container-fluid">
 
                 <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Add a Marathon
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2>Manage Marathons</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Race Name</th>
-                                        <th>Location</th>
-                                        <th>Date</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  <?php
-                                  foreach($races as $race){
-                                            $name = $race['raceName'];
-                                            $location = $race['raceLocation'];
-                                            $date = $race['raceDateTime'];
-                                            $id = $race['raceID'];
 
-                              echo " <tr> <td> $name</td> <td>$location</td> <td>$date</td> <td> <a href='/site/admin/update_race/". $id . "'>  Edit </a> | <a href='/site/admin/delete_race/" .$id."'> Delete</a></td> </tr>";
+                        <form method="post" action="/site/admin/add_race" role="form">
 
-                                  }
-                                   ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+
+  <div class="form-group">
+                                <label>Runner ID</label>
+                                <input name="txtID" class="form-control" placeholder="Enter text">
+                            </div>
+  <div class="form-group">
+                                <label>Runner Name</label>
+                                <input name="txtName" class="form-control" placeholder="Enter text">
+                            </div>
+  <div class="form-group">
+                                <label>Runner Email</label>
+                                <textarea name="txtEmail" class="form-control"> </textarea>
+                            </div>
+  <div class="form-group">
+                                <label>Race Date and Time</label>
+                                <input name="txtDate" class="form-control" placeholder="Enter text">
+                            </div>
+                            <button type="submit" class="btn btn-default"> Add Race </button>
+                            <button type="reset" class="btn btn-default"> Reset </button>
+
+
+                        </form>
+
 
                 </div>
                 <!-- /.row -->

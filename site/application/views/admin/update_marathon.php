@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Add a Marathon
+                            Update Race
                         </h1>
 
                     </div>
@@ -62,29 +62,29 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <form method="post" action="/site/admin/add_race" role="form">
+                        <form method="post" action="/site/admin/edit_race" role="form">
 
 
   <div class="form-group">
                                 <label>Race Name</label>
-                                <input name="txtName" class="form-control" placeholder="Enter text">
+                                <input name="txtName" value="<?=$race[0]["raceName"]?>" class="form-control" placeholder="Enter text">
                             </div>
   <div class="form-group">
                                 <label>Race Location</label>
-                                <input name="txtLocation" class="form-control" placeholder="Enter text">
+                                <input name="txtLocation" value="<?=$race[0]["raceLocation"]?>" class="form-control" placeholder="Enter text">
                             </div>
   <div class="form-group">
                                 <label>Race Description</label>
-                                <textarea name="txtDescription" class="form-control"> </textarea>
+                                <textarea name="txtDescription"  class="form-control"> <?=$race[0]["raceDescription"]?> </textarea>
                             </div>
   <div class="form-group">
                                 <label>Race Date and Time</label>
-                                <input name="txtDate" class="form-control" placeholder="Enter text">
+                                <input name="txtDate" class="form-control" value="<?=$race[0]["raceDateTime"]?>" placeholder="Enter text">
                             </div>
-                            <button type="submit" class="btn btn-default"> Add Race </button>
+                            <button type="submit" class="btn btn-default"> Update Race </button>
                             <button type="reset" class="btn btn-default"> Reset </button>
 
-
+<input type="hidden" name"txtID" value="<?=$race[0]["raceID"]?>">
                         </form>
 
 
